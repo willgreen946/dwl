@@ -110,8 +110,10 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define SYSMON    "htop"
 #define FMTUI	  "vifm"
 #define TXT	  "nvim"
-#define AUDIOTUI  "alsamixer"
+#define AUDIOTUI  "mixertui"
 #define RSS	  "tuifeed"
+#define MP	  "mocp"
+#define TOR	  "tor-browser"
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
@@ -124,6 +126,9 @@ static const Key keys[] = {
 	{ MODKEY,		     XKB_KEY_v,		 spawn,		 {.v = (const char*[]) { TERMINAL, TXT,      NULL}}},
 	{ MODKEY,		     XKB_KEY_a,		 spawn,		 {.v = (const char*[]) { TERMINAL, AUDIOTUI, NULL}}}, 
 	{ MODKEY,		     XKB_KEY_r,		 spawn,		 {.v = (const char*[]) { TERMINAL, RSS,	     NULL}}},
+	{ MODKEY,		     XKB_KEY_z,		 spawn,		 {.v = (const char*[]) { TERMINAL, MP,	     NULL}}},
+	{ MODKEY,		     XKB_KEY_w,		 spawn,		 {.v = (const char*[]) { SH,	   "wp.sh",  NULL}}},
+	{ MODKEY,		     XKB_KEY_t,		 spawn,		 {.v = (const char*[]) { TOR,		     NULL}}},
 	/* Below are 'under the hood' commands */
 	{ MODKEY,		     XKB_KEY_Return,	 togglefloating, {0} }, 
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
