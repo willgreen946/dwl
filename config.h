@@ -10,12 +10,14 @@ static const float fullscreen_bg[]         = {0.1, 0.1, 0.1, 1.0};
 /* tagging - tagcount must be no greater than 31 */
 static const int tagcount = 3;
 
+#define BROWSER "qutebrowser"
+
 static const Rule rules[] = {
 	/* app_id     title       tags mask     isfloating   monitor */
 	/* examples:
 	{ "Gimp",     NULL,       0,            1,           -1 },
 	*/
-	{ "librewolf",  NULL,       1 << 2,       0,           -1 },
+	{ BROWSER,  NULL,       1 << 2,       0,           -1 },
 };
 
 /* layout(s) */
@@ -104,7 +106,6 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 
 /* Programs */
 #define MENU      "bemenu-run"
-#define BROWSER   "librewolf"
 #define TERMINAL  "foot" 
 #define SH        "sh"
 #define SYSMON    "htop"
@@ -114,12 +115,14 @@ static const enum libinput_config_tap_button_map button_map = LIBINPUT_CONFIG_TA
 #define RSS	  "tuifeed"
 #define MP	  "mocp"
 #define TOR	  "tor-browser"
+#define STARTPAGE "searx.org"
 
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier                  key                 function        argument */
 	{ MODKEY,                    XKB_KEY_p,          spawn,          {.v = (const char*[]) { MENU,		     NULL}}},
-	{ MODKEY,		     XKB_KEY_b,		 spawn,		 {.v = (const char*[]) { BROWSER,            NULL}}}, 
+	{ MODKEY,		     XKB_KEY_b,		 spawn,		 {.v = (const char*[]) { BROWSER, STARTPAGE, NULL}}}, 
+	{ MODKEY,		     XKB_KEY_y,		 spawn,		 {.v = (const char*[]) { BROWSER, "yewtu.be",NULL}}},
 	{ MODKEY,		     XKB_KEY_space,	 spawn,		 {.v = (const char*[]) { TERMINAL,           NULL}}},
 	{ MODKEY,		     XKB_KEY_f,		 spawn,		 {.v = (const char*[]) { TERMINAL, FMTUI,    NULL}}},
 	{ MODKEY,		     XKB_KEY_m,		 spawn,		 {.v = (const char*[]) { TERMINAL, SYSMON,   NULL}}},
